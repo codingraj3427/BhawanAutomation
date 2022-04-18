@@ -15,11 +15,17 @@ const ConfirmOrder = ({ history }) => {
     0
   );
 
+  const total = cartItems.reduce(
+    (acc, item) => acc + item.quantity * item.original,
+    0
+  );
+
+  console.log(subtotal,total)
  
 
   const shippingCharges = subtotal > 1000 ? 0 : 200;
 
-  const tax=144;
+  const tax=subtotal-total;
 
   const totalPrice = subtotal - tax + shippingCharges;
 
